@@ -39,7 +39,7 @@ const ShopCategory = (props) => {
             Showing 1-12
           </span> out of {all_product.length} Products
         </p>
-        <div className="shopcategory-sort">
+        {/* <div className="shopcategory-sort">
           <button onClick={() => setSortOptionsVisible(!sortOptionsVisible)}>
             Sort by <img src={dropdown_icon} alt="" />
           </button>
@@ -86,7 +86,7 @@ const ShopCategory = (props) => {
               </label>
             </div>
           )}
-        </div>
+        </div> */}
       </div>
       <div className="shopcategory-products">
         {all_product.map((item, i) => {

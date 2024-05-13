@@ -1,6 +1,6 @@
 /* Default styles */
 .login {
-  width: 100%;
+  width: 90%;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -55,6 +55,7 @@
   font-size: 14px;
   align-items: flex-start;
   justify-content: flex-start;
+  margin-left: 10px;
   
 }
 .login-fields {
@@ -90,6 +91,7 @@
   outline: none;
   color: #5c5c5c;
   font-size: 16px;
+  margin-left: 0px;
 }
 
 .login-container button {
@@ -190,6 +192,6 @@ color: green;
   }
 
   .login-fields input {
-    width: 100%;
+    width: 90%;
   }
 }

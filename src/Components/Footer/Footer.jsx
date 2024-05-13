@@ -5,6 +5,7 @@ import instagram_icon from '../Assets/instagram_icon.png'
 import pintester_icon from '../Assets/pintester_icon.png'
 import whatsapp_icon from '../Assets/whatsapp_icon.png'
 import '@fortawesome/fontawesome-free/css/all.css';
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -23,13 +24,13 @@ const Footer = () => {
       <div className="footer-social-icon">
 
         <div className="footer-icons-container">
-            <img src={instagram_icon} alt="" />
+        <a href="https://www.instagram.com/?hl=en" target="_blank" rel="noopener noreferrer"><img src={instagram_icon} alt="" /></a>
         </div>
         <div className="footer-icons-container">
-            <img src={pintester_icon} alt="" />
+            <a href="https://in.pinterest.com/"><img src={pintester_icon} alt="" /></a>
         </div>
         <div className="footer-icons-container">
-            <img src={whatsapp_icon} alt="" />
+            <a href="https://www.whatsapp.com/"><img src={whatsapp_icon} alt="" /></a>
         </div>
       </div>
       <div className="footer-copyright">

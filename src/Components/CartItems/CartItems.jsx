@@ -1,11 +1,18 @@
-// CartItems.js
-import React, { useContext } from 'react'
-import './CartItems.css'
-import { ShopContext } from '../../Context/ShopContext'
-import remove_icon from '../Assets/cart_cross_icon.png'
+import React, { useContext, useState } from 'react';
+import './CartItems.css';
+import { ShopContext } from '../../Context/ShopContext';
+import remove_icon from '../Assets/cart_cross_icon.png';
 
 const CartItems = () => {
   const { getTotalCartAmount, all_product, cartItems, removeFromCart, addToCart } = useContext(ShopContext);
+  const [submitted, setSubmitted] = useState(false);
+  const [promoCode, setPromoCode] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+    setPromoCode('');
+  };
 
   return (
     <div className='cartitems'>
@@ -20,23 +27,23 @@ const CartItems = () => {
       <hr />
       {all_product.map((e) => {
         if (cartItems[e.id] > 0) {
-
-          return <div>
-            <div className="cartitems-format cartitems-format-main">
-              <img src={e.image} alt="" className='carticon-product-icon' />
-              <p>{e.name}</p>
-              <p>${e.new_price}</p>
-              <div className="cartitems-quantity">
-    <button onClick={() => { removeFromCart(e.id) }}>-</button>
-    <div className="cartitems-quantity-value">{cartItems[e.id]}</div>
-    <button onClick={() => { addToCart(e.id) }}>+</button>
-</div>
-
-              <p>${e.new_price * cartItems[e.id]}</p>
-              <img className='cartitems-remove-icon' src={remove_icon} onClick={() => { removeFromCart(e.id) }} alt="" />
+          return (
+            <div>
+              <div className="cartitems-format cartitems-format-main">
+                <img src={e.image} alt="" className='carticon-product-icon' />
+                <p>{e.name}</p>
+                <p>${e.new_price}</p>
+                <div className="cartitems-quantity-wrapper">
+                  <button className='cartitems-quantity' onClick={() => { removeFromCart(e.id) }}>-</button>
+                  <div className="cartitems-quantity-value">{cartItems[e.id]}</div>
+                  <button className='cartitems-quantity' onClick={() => { addToCart(e.id) }}>+</button>
+                </div>
+                <p>${e.new_price * cartItems[e.id]}</p>
+                <img className='cartitems-remove-icon' src={remove_icon} onClick={() => { removeFromCart(e.id) }} alt="" />
+              </div>
+              <hr />
             </div>
-            <hr />
-          </div>
+          );
         }
         return null;
       })}
@@ -64,13 +71,19 @@ const CartItems = () => {
         <div className="cartitems-promocode">
           <p>If you have a promo code, Enter it here</p>
           <div className="cartitems-promobox">
-            <input type="text" placeholder='promo code' />
-            <button>Submit</button>
+            <input
+              type="text"
+              placeholder='promo'
+              value={promoCode}
+              onChange={(e) => setPromoCode(e.target.value)}
+            />
+            <button onClick={handleSubmit}>Submit</button>
+            {submitted && <p style={{ color: 'green' }}><i class="fa-solid fa-circle-check"></i>  Promo code submitted successfully!</p>}
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default CartItems
+export default CartItems;
