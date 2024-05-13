@@ -1,0 +1,33 @@
+.todayoffers{
+    width: 350px;
+}
+.todayoffers p{
+    margin: 6px 0px;
+}
+.todayoffers-prices{
+    display: flex;
+    gap: 20px;
+}
+.todayoffers-price-new{
+    color: #374151;
+    font-size: 18px;
+    font-weight: 600;
+}
+.todayoffers-price-old{
+    color: #8c8c8c;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: line-through;
+}
+.todayoffers:hover{
+    transform:scale(1.05);
+    transition: 0.6s;
+}
+    .todayoffers-offers {
+        background-color: red;
+        color: white;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+        padding: 15px; 
+    }
+    
